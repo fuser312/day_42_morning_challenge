@@ -11,7 +11,7 @@
 //  100% of the numbers are less than or equal to 22
 
 
-Map calculateNPercentOfIntegers(int percent, List <int>inputList) {
+Map percentOfNumbers(int percent, List <int>inputList) {
   Map temp = {};
   int numberOfIntegers = (inputList.length * (percent / 100)).ceil();
   temp[percent] =(inputList[numberOfIntegers - 1]) ;
