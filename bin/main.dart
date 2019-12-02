@@ -10,5 +10,31 @@
 //  99% of the numbers are less than or equal to 22
 //  100% of the numbers are less than or equal to 22
 
+
+Map calculateNPercentOfIntegers(int percent, List <int>inputList) {
+  Map temp = {};
+  int numberOfIntegers = (inputList.length * (percent / 100)).ceil();
+  temp[percent] =(inputList[numberOfIntegers - 1]) ;
+  
+  return temp;
+}
+
+List <Map> logsPercentile(List<int> inputList){
+  inputList.sort();
+  List <int> percentages = [25, 50, 75, 90, 95, 99, 100];
+  List <Map> outputList =[];
+
+  for (int percent in percentages){
+    outputList.add(calculateNPercentOfIntegers(percent, inputList));
+  }
+ 
+  for(var item in outputList){
+    print("${item.keys}% of the numbers are less than or equal to ${item.values}");
+  }
+
+  return outputList;
+}
+
 main() {
+  print(logsPercentile([8, 6, 6, 20, 9, 1, 12, 16, 3, 16, 22, 2]));
 }
