@@ -12,11 +12,11 @@
 
 
 Map percentOfNumbers(int percent, List <int>inputList) {
-  Map temp = {};
+  Map <int, int> mapOfPercentageWithNumber = {};
   int numberOfIntegers = (inputList.length * (percent / 100)).ceil();
-  temp[percent] =(inputList[numberOfIntegers - 1]) ;
+  mapOfPercentageWithNumber[percent] =(inputList[numberOfIntegers - 1]) ;
   
-  return temp;
+  return mapOfPercentageWithNumber;
 }
 
 List <Map> logsPercentile(List<int> inputList){
@@ -25,10 +25,10 @@ List <Map> logsPercentile(List<int> inputList){
   List <Map> outputList =[];
 
   for (int percent in percentages){
-    outputList.add(calculateNPercentOfIntegers(percent, inputList));
+    outputList.add(percentOfNumbers(percent, inputList));
   }
  
-  for(var item in outputList){
+  for(dynamic item in outputList){
     print("${item.keys}% of the numbers are less than or equal to ${item.values}");
   }
 
